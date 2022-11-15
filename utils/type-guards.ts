@@ -67,7 +67,9 @@ export function isPokemon(value: unknown): value is Pokemon {
 export function isPokemonArray(value: unknown): value is Pokemon[] {
   if (isArray(value)) {
     for (let i = 0; i < value.length; i++) {
-
-    } 
+      if (!isPokemon(value[i])) return false;
+    }
+    return true;
   }
+  return false;
 }
